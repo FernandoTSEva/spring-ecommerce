@@ -1,6 +1,21 @@
 package com.curso.ecomerce.model;
 
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "usuarios")
+
 public class Usuario {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
 	private String username;
@@ -8,6 +23,13 @@ public class Usuario {
 	private String direccion;
 	private String tipo;
 	private String password;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<Producto>productos;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<Orden> ordenes;
+	
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -80,7 +102,21 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	
-	
+	public List<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", username=" + username + ", email=" + email
+				+ ", direccion=" + direccion + ", tipo=" + tipo + ", password=" + password + ", productos=" + productos
+				+ "]";
+	}
 	
 }
