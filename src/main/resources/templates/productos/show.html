@@ -38,22 +38,21 @@
 		      <tr>
 		        <th scope="col">Nombre</th>
 		        <th scope="col">Descripción</th>
-				<th scope="col">Modelos</th>
 		        <th scope="col">Inventario</th>
 		        <th scope="col">Precio</th>
-		        <th scope="col">Acción</th>
 		        <th scope="col">Acción</th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr>
-		        <td></td>
-				<td></td>
-		        <td></td>
-		        <td></td>
-		        <td></td>
-		        <td><a  class="btn btn-warning">Editar</a> </td>
-		        <td><a  class="btn btn-danger">Eliminar</a> </td>
+		      <tr th:each="producto:${productos}">
+		        <td th:text="${producto.nombre}"></td>
+				<td th:text="${producto.descripcion}"></td>
+		        <td th:text="${producto.cantidad}"></td>
+		        <td th:text="${producto.precio}"></td>
+		        <td><a  class="btn btn-warning" th:href="@{/productos/edit/{id}(id=${producto.id})}">Editar</a>
+					<a  class="btn btn-danger" th:href="@{/productos/delete/{id}(id=${producto.id})}">Eliminar</a>
+				</td>
+		  
 		      </tr>       
 		    </tbody>
 		  </table>
