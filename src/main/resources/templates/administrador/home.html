@@ -25,15 +25,12 @@
 	
 	<div class="container mt-4">
 	       <h2 class="text-center">Nuestros Productos</h2>
-	       <div class="row">
-	           <div class="col-md-4">
-	               <div class="card">
-	                   <img  class="card-img-top" alt="Producto 1">
+	       <div class="row text-center">
+	           <div class="col-md-6 col-lg-3 mb-4" th:each="producto: ${productos}">
+	               <div class="card h-100">
+					<img class="card-img-top" th:src="@{/images/{img}(img=${producto.imagen})}" alt="Producto">
 	                   <div class="card-body">
-	                       <h5 class="card-title">Producto 1</h5>
-	                       <p class="card-text">Descripción breve del producto.</p>
-	                       <p class="card-text fw-bold">$100.00</p>
-	                       <a href="#" class="btn btn-primary">Comprar</a>
+	                       <p class="card-text fw-bold" th:text="${producto.nombre}"></p>
 	                   </div>
 	               </div>
 	           </div>
@@ -61,81 +58,6 @@
 	           </div>
 	       </div>
 	   </div>
-	   <div class="container mt-4">
-	          <div class="row">
-	              <div class="col-md-4">
-	                  <div class="card">
-	                      <img  class="card-img-top" alt="Producto 1">
-	                      <div class="card-body">
-	                          <h5 class="card-title">Producto 1</h5>
-	                          <p class="card-text">Descripción breve del producto.</p>
-	                          <p class="card-text fw-bold">$100.00</p>
-	                          <a href="#" class="btn btn-primary">Comprar</a>
-	                      </div>
-	                  </div>
-	              </div>
-	              <div class="col-md-4">
-	                  <div class="card">
-	                      <img class="card-img-top" alt="Producto 2">
-	                      <div class="card-body">
-	                          <h5 class="card-title">Producto 2</h5>
-	                          <p class="card-text">Descripción breve del producto.</p>
-	                          <p class="card-text fw-bold">$200.00</p>
-	                          <a href="#" class="btn btn-primary">Comprar</a>
-	                      </div>
-	                  </div>
-	              </div>
-	              <div class="col-md-4">
-	                  <div class="card">
-	                      <img class="card-img-top" alt="Producto 3">
-	                      <div class="card-body">
-	                          <h5 class="card-title">Producto 3</h5>
-	                          <p class="card-text">Descripción breve del producto.</p>
-	                          <p class="card-text fw-bold">$300.00</p>
-	                          <a href="#" class="btn btn-primary">Comprar</a>
-	                      </div>
-	                  </div>
-	              </div>
-	          </div>
-	      </div>
-		  <div class="container mt-4">
-		         <div class="row">
-		             <div class="col-md-4">
-		                 <div class="card">
-		                     <img  class="card-img-top" alt="Producto 1">
-		                     <div class="card-body">
-		                         <h5 class="card-title">Producto 1</h5>
-		                         <p class="card-text">Descripción breve del producto.</p>
-		                         <p class="card-text fw-bold">$100.00</p>
-		                         <a href="#" class="btn btn-primary">Comprar</a>
-		                     </div>
-		                 </div>
-		             </div>
-		             <div class="col-md-4">
-		                 <div class="card">
-		                     <img class="card-img-top" alt="Producto 2">
-		                     <div class="card-body">
-		                         <h5 class="card-title">Producto 2</h5>
-		                         <p class="card-text">Descripción breve del producto.</p>
-		                         <p class="card-text fw-bold">$200.00</p>
-		                         <a href="#" class="btn btn-primary">Comprar</a>
-		                     </div>
-		                 </div>
-		             </div>
-		             <div class="col-md-4">
-		                 <div class="card">
-		                     <img class="card-img-top" alt="Producto 3">
-		                     <div class="card-body">
-		                         <h5 class="card-title">Producto 3</h5>
-		                         <p class="card-text">Descripción breve del producto.</p>
-		                         <p class="card-text fw-bold">$300.00</p>
-		                         <a href="#" class="btn btn-primary">Comprar</a>
-		                     </div>
-		                 </div>
-		             </div>
-		         </div>
-		     </div>	
-	
 	
 	<div th:include="administrador/templates_admin.html::footer"></div>
 	
